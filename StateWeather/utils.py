@@ -4,7 +4,7 @@ from StateWeather.constants import CONSTS as consts
 from StateWeather.constants import REGEX
 
 
-class LineParser():
+class RowParser():
 
     def get_line_type(self, line, re_separator='\s+'):
         if not line:

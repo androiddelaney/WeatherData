@@ -1,6 +1,6 @@
 
 from StateWeather.spreaddata import SpreadData
-from StateWeather import utils
+from StateWeather.utils import RowParser
 
 
 def main(filepath):
@@ -8,12 +8,13 @@ def main(filepath):
         return None
 
     with open(filepath, 'rt') as f:
-        lp = utils.LineParser()
+        rp = RowParser()
         header = {'Dy':0, 'MxT':1, 'MnT':2}
-        data = SpreadData(header)
+        get_min_spread_key_map = {'Day': 'Dy', 'Min': 'MnT', 'Max':'MxT'}
+        data = SpreadData(header, get_min_spread_key_map)
 
         for line in f:
-            lp.process_line(line, data, data.get_min_spread)
+            rp.process_line(line, data, data.get_min_spread)
 
         print(f"Min day: {data.min_day} spread: {data.min_spread}")
 

@@ -1,11 +1,11 @@
 import unittest
-from StateWeather.utils import LineParser
+from StateWeather.utils import RowParser
 from StateWeather.constants import CONSTS as c
 
 
 class LineParserTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.lp = LineParser()
+        self.lp = RowParser()
         self.test_line = '   1  88    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5'
         self.test_line_float = '   1  88.8    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5'
         self.header_line = '  Dy MxT   MnT   AvT   HDDay  AvDP 1HrP TPcpn WxType PDir AvSp Dir MxS SkyC MxR MnR AvSLP'
